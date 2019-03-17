@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="background-image: url('../../Images/RockBand1.jpeg');" ); background-size: 100%">
+    <h1>We're going on the Road!</h1>
+    <p class="lead">
+        Join us as we take our MVC Tour on the road! First stop is in Chicago, but we'll be going from the Windy City to somewhere near you, make sure you check out our schedule!
+    <p>
+        <img class="img-responsive img-circle" style="display:inline;margin:15px;height:100px" src="~/Images/Chicago.jpeg" />
+        <img class="img-responsive img-circle" style="display:inline;margin:15px;height:100px" src="~/Images/StLouis.jpeg" />
+        <img class="img-responsive img-circle" style="display:inline;margin:15px;height:100px" src="~/Images/Minneapolis.jpeg" />
+        <img class="img-responsive img-circle" style="display:inline;margin:15px;height:100px" src="~/Images/Omaha.jpeg" />
+        <img class="img-responsive img-circle" style="display:inline;margin:15px;height:100px" src="~/Images/NewYork.jpeg" />
+    </p>
+    </p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Blog</h2>
+        <p>
+            Get the Latest News!
+        </p>
+        <p><a class="btn btn-info" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Events</h2>
+        <p>Schedule of where the band will be playing</p>
+        <p><a class="btn btn-warning" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Go Backstage!</h2>
+        <p>Join us before the show and see what's going on. Make sure you get your ticket!</p>
+        <p><a class="btn btn-danger" href="/backstage/special">Get Ticket!</a></p>
+    </div>
+</div>
+
+@section scripts{
+    <script>var test = true;</script>}

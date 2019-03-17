@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+
+<div id="formSection">
+    <div>@ViewBag.Message</div>
+    <form method="post" id="contactForm">
+        <textarea data-bind="value:message, valueUpdate:'input'" name="message" id="message" maxlength="50"></textarea>
+        <input type="submit" value="Send" />
+        <p><span data-bind="text:charactersRemaining"></span> characters remaining</p>
+        <p>
+            <img src="~/Images/progress.gif" id="progress" style="display:none;" />
+        </p>
+    </form>
+</div>
+
+@section scripts{
+
+    <script src="~/Scripts/knockout-3.4.2.js"></script>
+
+    <script>
+        function contactViewModel() {
+            var self = this;
+            self.message = ko.observable('');
+            self.charactersRemaining = ko.computed(function () { return 50 - self.message().length; })
+        }
+        ko.applyBindings(new contactViewModel());
+    </script>
+
+    <script>
+        $('#contactForm').submit(function () {
+            $('#progress').show();
+            $.post('', { message: $('#message').val() })
+                .done(function (response) {
+                    setTimeout(function () { $('#formSection').html(response); }, 2000);
+                });
+            return false;
+        });
+    </script>
+
+}
+
+@*<div id="formSection">
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "formSection" }))
+        {
+            <div>@ViewBag.Message</div>
+            <textarea id="message" name="message"></textarea>
+            <input type="submit" value="send" />
+        }
+    </div>
+
+    @section scripts{
+
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    }*@
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
